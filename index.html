@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sébastien DEMANGE</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">SéBASTIEN DEMANGE</a>
+        <ul>
+            <li><a href="#" class="active">Accueil</a></li>
+            <li><a href="/Pages/projects.html">Projets</a></li>
+            <li><a href="#">Expériences</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="/Medias/stars.png" id="stars">
+        <img src="/Medias/moon.png" id="moon">
+        <img src="/Medias/mountains_behind.png" id="mountains_behind">
+        <h2 id="text">Bienvenue</h2>
+        <a href="#sec" id="btn">En savoir plus</a>
+        <img src="/Medias/mountains_front.png" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2>À propos de moi</h2>
+        <p>Je suis Sébastien DEMANGE, un passionné de musique, de guitare et de production vidéo âgé de 24 ans.<br><br>
+
+            Depuis que j'ai commencé à apprendre le développement web en 2021 dans le cadre de mon BTS, 
+            j'ai été fasciné par les possibilités et les opportunités qu'offre ce domaine passionnant. 
+            Depuis lors, j'ai travaillé dur pour développer mes compétences en développement web et j'ai décidé 
+            que je voulais faire de cette passion mon métier. Mon portfolio est un témoignage de mon parcours jusqu'à présent, 
+            ainsi que de mes projets et réalisations en développement web, en production vidéo et dans d'autres domaines connexes.<br><br>
+
+            En parcourant mon portfolio, vous pourrez voir mes compétences en développement web, 
+            ainsi que mes réalisations en matière de production vidéo. Vous pourrez également découvrir mes projets, 
+            mes contributions à des projets open-source, ainsi que mes réflexions sur les dernières tendances et technologies 
+            en matière de développement web.<br><br>
+
+            Je suis fier de ce que j'ai accompli jusqu'à présent, mais je suis également impatient de continuer à développer mes compétences et à explorer de nouveaux projets
+            et domaines d'intérêt. Si vous êtes intéressé à travailler avec moi ou à explorer de nouvelles opportunités de collaboration, n'hésitez pas à me contacter.<br><br>
+
+            Merci d'avoir pris le temps de découvrir mon portfolio, j'espère que vous apprécierez ce que vous 
+            y trouverez et que vous serez inspiré par mes projets et mes réalisations.<br><br>
+        </p>    
+
+    </div>
+
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 3 + 'px';
+            text.style.marginTop = value * 1.2 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            header.style.top = value * 0.9 + 'px';
+        })
+    </script>
+</body>
+</html>
