@@ -125,7 +125,7 @@ section img#mountains_front{
     margin-left:42%;
     box-sizing: border-box;
     z-index: 11;
-    transform: translateY(500px);
+    transform: translateY(400px);
 }
 
 .sec{
