@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sébastien DEMANGE</title>
+    <link rel="stylesheet" href="/Pages_styles/contact.css">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <div class="navbar">
+        <a href="/index.html" class="logo">SéBASTIEN DEMANGE</a>
+        <ul class="navlist">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="/Pages/projects.html">Projets</a></li>
+            <li><a href="/Pages/experiences.html">Expériences</a></li>
+            <li><a href="/Pages/contact.html" class="active">Contact</a></li>
+        </ul>
+   </div>
+    <div class="container">
+        <span class="big-circle"></span>
+        <div class="form">
+            <div class="contact-info">
+                <h3 class="title">Contactez-moi</h3>
+                <p class="text">
+                    Si vous avez des questions ou si vous souhaitez en savoir plus sur mes projets, n'hésitez pas à me contacter en remplissant le formulaire.
+                </p>
+
+                <div class="info">
+                    <div class="information">
+                        <img src="/Medias/email.png" class="icon" alt=""> 
+                        <p>sebastien050599@hotmail.fr</p>   
+                    </div>
+                </div>
+                <div class="social-media">
+                    <p>Vous pouvez également me contacter via LinkedIn et voir mon profil GitHub :</p>
+                    <div class="social-icons">
+                        
+                        <a href="https://github.com/SEBonduel"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/s%C3%A9bastien-demange-5a4b03243/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <span class="circle one"></span>
+                <span class="circle two"></span>
+
+                <form action="contact.html">
+                    <h3 class="title">Contactez-moi</h3>
+
+                    <div class="input-container">
+                        <input type="text" name="name" class="input" id="name" required>
+                        <label for="">Nom et Prénom *</label>
+                        <span>Nom et Prénom *</span>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="email" name="email" class="input" id="email" required>
+                        <label for="">Email *</label>
+                        <span>Email *</span>
+
+                    </div>
+
+                    <div class="input-container">
+                        <input type="tel" name="phone" class="input" id="phone" >
+                        <label for="">Téléphone</label>
+                        <span>Téléphone</span>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="text" name="subject" class="input" id="subject" required>
+                        <label for="">Sujet *</label>
+                        <span>Sujet *</span>
+                    </div>
+
+                    <div class="input-container textarea">
+                        <textarea name="message" class="input" id="message" required></textarea>
+                        <label for="">Message *</label>
+                        <span>Message *</span>
+                    </div>
+                    <input type="submit" value="Envoyer" class="btn"><p class="error-text">Un des champs n'est pas rempli *</p>
+                </form>
+            </div> 
+                
+        </div>
+
+    </div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../JS/contact.js"></script>    
+<script src="../JS/app.js"></script>
+</body>
+</html>
