@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/Pages_styles/projects.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Parcours Académique 3D</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/index.html" class="logo">SéBASTIEN DEMANGE</a>
+        <ul class="navlist">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="/Pages/projects.html">Projets</a></li>
+            <li><a href="/Pages/skills.html"class="active">Compétences</a></li>
+            <li><a href="/Pages/contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Initialisation de Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Création des sphères pour représenter les étapes
+        const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const boxes = [];
+
+        // URLs des textures pour chaque sphère
+        const textureURLs = [
+            'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png',
+            'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+            // Ajoutez autant d'URLs que de sphères
+        ];
+
+        // Positions prédéfinies des sphères
+        const spherePositions = [
+            { x: -11.5, y: 0, z: 0 },
+            { x: -9, y: 2, z: 0 },
+            { x: -6.5, y: -2, z: 1 },
+            { x: -4, y: -0.5, z: 2 },
+            { x: -1.5, y: 2.5, z: 2 },
+            { x: 1, y: 0, z: 3 },
+            { x: 3.5, y: 1.5, z: 3 },
+            { x: 6.5, y: -3, z: 2 },
+            { x: 9, y: 1, z: 0 },
+            { x: 11.5, y: -3.5, z: -1 }
+        ];
+
+        // Chargement des textures et création des sphères
+        const textureLoader = new THREE.TextureLoader();
+        textureURLs.forEach((url, index) => {
+            textureLoader.load(url, (texture) => {
+                const material = new THREE.MeshStandardMaterial({ map: texture });
+                const sphere = new THREE.Mesh(sphereGeometry, material);
+                sphere.position.set(spherePositions[index].x, spherePositions[index].y, spherePositions[index].z);
+                scene.add(sphere);
+                boxes.push(sphere);
+            });
+        });
+
+        // Positionnement de la caméra
+        camera.position.set(0, 0, 10);
+
+        // Ajout d'une lumière ambiante pour améliorer l'éclairage
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        // Ajout d'une lumière directionnelle pour simuler la lumière du soleil
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(0, 1, 1);
+        scene.add(directionalLight);
+
+        // Variables pour suivre l'état du clic et l'objet sélectionné
+        let isDragging = false;
+        let selectedSphere = null;
+        let previousMousePosition = {
+            x: 0,
+            y: 0
+        };
+
+        // Fonction pour détecter le début du clic glissé
+        function onMouseDown(event) {
+            isDragging = true;
+            const mouse = new THREE.Vector2();
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(boxes);
+            if (intersects.length > 0) {
+                selectedSphere = intersects[0].object;
+                previousMousePosition = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+            }
+        }
+
+        // Fonction pour détecter la fin du clic glissé
+        function onMouseUp() {
+            isDragging = false;
+            selectedSphere = null;
+        }
+
+        // Fonction pour détecter le mouvement de la souris
+        function onMouseMove(event) {
+            if (isDragging && selectedSphere) {
+                const deltaMove = {
+                    x: event.clientX - previousMousePosition.x,
+                    y: event.clientY - previousMousePosition.y
+                };
+
+                // Ajout de la rotation basée sur le déplacement de la souris
+                selectedSphere.rotation.y += deltaMove.x * 0.01;
+                selectedSphere.rotation.x += deltaMove.y * 0.01;
+
+                // Mettre à jour la position précédente de la souris pour le prochain mouvement
+                previousMousePosition = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+            }
+        }
+
+        // Ajout des écouteurs d'événements pour le clic glissé
+        window.addEventListener('mousedown', onMouseDown, false);
+        window.addEventListener('mouseup', onMouseUp, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Fonction pour ajouter une rotation aléatoire aux sphères
+        function addRandomRotation() {
+            boxes.forEach((sphere) => {
+                const randomRotationSpeed = 0.001; // Vitesse de rotation aléatoire
+                sphere.rotation.y += Math.random() * randomRotationSpeed;
+                sphere.rotation.x += Math.random() * randomRotationSpeed;
+            });
+        }
+
+        // Fonction d'animation
+        function animate() {
+            requestAnimationFrame(animate);
+            addRandomRotation(); // Ajoute une rotation aléatoire
+            renderer.render(scene, camera);
+        }
+
+        animate(); // Lancer l'animation
+    </script>
+</body>
+</html>
