@@ -19,7 +19,7 @@ header{
     top:0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 20px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,15 +30,18 @@ header .logo{
     color: #fff;
     text-decoration: none;
     font-weight: 700;
-    letter-spacing: 2px;
     font-size:2em;
     text-transform: uppercase;
+    margin-left:1.5em;
 }
 
 header ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size:19.2px;
+    padding: 11.52px 28.8px;
+    margin-right:-3em;
 }
 
 header ul li{
@@ -51,6 +54,7 @@ header ul li a{
     padding: 6px 15px;
     color: #fff;
     border-radius: 20px;
+    padding: 0.6em 1.5em;
 }
 
 header ul li a:hover{
@@ -61,6 +65,7 @@ header ul li a:hover{
 header ul li a.active{
     background:#fff;
     color:#2b1055;
+    padding: 0.6em 1.5em;
 }
 
 section{
