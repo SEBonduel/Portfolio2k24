@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="/Pages_styles/skills.css">
 </head>
 <body>
+    <div id="threejs-container">
+    <div class="navbar">
+        <a href="/index.html" class="logo">SéBASTIEN DEMANGE</a>
+        <ul class="navlist">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="/Pages/projects.html">Projets</a></li>
+            <li><a href="/Pages/skills.html" class="active">Compétences</a></li>
+            <li><a href="/Pages/contact.html">Contact</a></li>
+        </ul>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Initialisation de Three.js
@@ -80,16 +91,20 @@
             y: 0
         };
 
-        // Fonction pour détecter le début du clic glissé
+        // Fonction pour détecter le début du clic glissé sur une sphère
         function onMouseDown(event) {
-            isDragging = true;
-            const mouse = new THREE.Vector2();
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            const mouse = new THREE.Vector2(
+                (event.clientX / window.innerWidth) * 2 - 1,
+                -(event.clientY / window.innerHeight) * 2 + 1
+            );
+
             const raycaster = new THREE.Raycaster();
             raycaster.setFromCamera(mouse, camera);
+
             const intersects = raycaster.intersectObjects(boxes);
+
             if (intersects.length > 0) {
+                isDragging = true;
                 selectedSphere = intersects[0].object;
                 previousMousePosition = {
                     x: event.clientX,
@@ -104,8 +119,24 @@
             selectedSphere = null;
         }
 
-        // Fonction pour détecter le mouvement de la souris
+        // Fonction pour détecter le mouvement de la souris et changer le curseur lorsqu'elle survole une sphère
         function onMouseMove(event) {
+            const mouse = new THREE.Vector2(
+                (event.clientX / window.innerWidth) * 2 - 1,
+                -(event.clientY / window.innerHeight) * 2 + 1
+            );
+
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(mouse, camera);
+
+            const intersects = raycaster.intersectObjects(boxes);
+
+            if (intersects.length > 0) {
+                document.body.style.cursor = 'pointer'; // Changer le curseur en pointeur si le curseur est sur une sphère
+            } else {
+                document.body.style.cursor = 'auto'; // Revenir au curseur par défaut si le curseur n'est pas sur une sphère
+            }
+
             if (isDragging && selectedSphere) {
                 const deltaMove = {
                     x: event.clientX - previousMousePosition.x,
@@ -129,55 +160,14 @@
         window.addEventListener('mouseup', onMouseUp, false);
         window.addEventListener('mousemove', onMouseMove, false);
 
-        // Fonction pour ajouter une rotation aléatoire aux sphères
-        function addRandomRotation() {
-            boxes.forEach((sphere) => {
-                const randomRotationSpeed = 0.001; // Vitesse de rotation aléatoire
-                sphere.rotation.y += Math.random() * randomRotationSpeed;
-                sphere.rotation.x += Math.random() * randomRotationSpeed;
-            });
-        }
-
         // Fonction d'animation
         function animate() {
             requestAnimationFrame(animate);
-            addRandomRotation(); // Ajoute une rotation aléatoire
             renderer.render(scene, camera);
         }
 
-        // Fonction pour détecter le mouvement de la souris et changer le curseur
-function onMouseMove(event) {
-    const mouse = new THREE.Vector2();
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(boxes);
-    if (intersects.length > 0) {
-        document.body.style.cursor = 'pointer'; // Changer le curseur en pointeur si le curseur est sur une sphère
-    } else {
-        document.body.style.cursor = 'auto'; // Revenir au curseur par défaut si le curseur n'est pas sur une sphère
-    }
-
-    if (isDragging && selectedSphere) {
-        const deltaMove = {
-            x: event.clientX - previousMousePosition.x,
-            y: event.clientY - previousMousePosition.y
-        };
-
-        // Ajout de la rotation basée sur le déplacement de la souris
-        selectedSphere.rotation.y += deltaMove.x * 0.01;
-        selectedSphere.rotation.x += deltaMove.y * 0.01;
-
-        // Mettre à jour la position précédente de la souris pour le prochain mouvement
-        previousMousePosition = {
-            x: event.clientX,
-            y: event.clientY
-        };
-    }
-}
-
         animate(); // Lancer l'animation
     </script>
+    </div>
 </body>
 </html>
