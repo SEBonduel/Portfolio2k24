@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="/Pages_styles/projects.css">
 <head>
     <meta charset="UTF-8">
     <title>Parcours Académique 3D</title>
@@ -16,15 +15,6 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="/index.html" class="logo">SéBASTIEN DEMANGE</a>
-        <ul class="navlist">
-            <li><a href="/index.html">Accueil</a></li>
-            <li><a href="/Pages/projects.html">Projets</a></li>
-            <li><a href="/Pages/skills.html"class="active">Compétences</a></li>
-            <li><a href="/Pages/contact.html">Contact</a></li>
-        </ul>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Initialisation de Three.js
@@ -163,6 +153,38 @@
             addRandomRotation(); // Ajoute une rotation aléatoire
             renderer.render(scene, camera);
         }
+
+        // Fonction pour détecter le mouvement de la souris et changer le curseur
+function onMouseMove(event) {
+    const mouse = new THREE.Vector2();
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(boxes);
+    if (intersects.length > 0) {
+        document.body.style.cursor = 'pointer'; // Changer le curseur en pointeur si le curseur est sur une sphère
+    } else {
+        document.body.style.cursor = 'auto'; // Revenir au curseur par défaut si le curseur n'est pas sur une sphère
+    }
+
+    if (isDragging && selectedSphere) {
+        const deltaMove = {
+            x: event.clientX - previousMousePosition.x,
+            y: event.clientY - previousMousePosition.y
+        };
+
+        // Ajout de la rotation basée sur le déplacement de la souris
+        selectedSphere.rotation.y += deltaMove.x * 0.01;
+        selectedSphere.rotation.x += deltaMove.y * 0.01;
+
+        // Mettre à jour la position précédente de la souris pour le prochain mouvement
+        previousMousePosition = {
+            x: event.clientX,
+            y: event.clientY
+        };
+    }
+}
 
         animate(); // Lancer l'animation
     </script>
