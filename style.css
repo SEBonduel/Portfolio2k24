@@ -150,3 +150,100 @@ section img#mountains_front{
     font-size: 1.2em;
 }
 
+@media (max-width: 992px) {
+    header .logo {
+        font-size: 1.5em;
+        margin-left: 1em;
+    }
+
+    header ul {
+        font-size: 16px;
+        padding: 8px 20px;
+        margin-right: -2em;
+    }
+
+    header ul li {
+        margin-right: 15px;
+    }
+
+    section {
+        padding: 50px;
+    }
+
+    #text {
+        font-size: 5vw;
+        right: -250px;
+        top: 100px;
+    }
+
+    #btn {
+        margin-top: 6em;
+        height: 50px;
+        padding: 6px 20px;
+        font-size: 1.2em;
+        margin-left: 38%;
+        transform: translateY(200px);
+    }
+
+    .sec {
+        padding: 50px;
+    }
+
+    .sec h2 {
+        font-size: 2.5em;
+    }
+
+    .sec p {
+        font-size: 1em;
+    }
+}
+
+/* Pour les téléphones mobiles */
+@media (max-width: 576px) {
+    header .logo {
+        font-size: 1.2em;
+        margin-left: 0.5em;
+    }
+
+    header ul {
+        font-size: 14px;
+        padding: 6px 15px;
+        margin-right: -1em;
+    }
+
+    header ul li {
+        margin-right: 10px;
+    }
+
+    section {
+        padding: 30px;
+    }
+
+    #text {
+        font-size: 4vw;
+        right: -150px;
+        top: 80px;
+    }
+
+    #btn {
+        margin-top: 4em;
+        height: 40px;
+        padding: 4px 15px;
+        font-size: 1em;
+        margin-left: 35%;
+        transform: translateY(150px);
+    }
+
+    .sec {
+        padding: 30px;
+    }
+
+    .sec h2 {
+        font-size: 2em;
+    }
+
+    .sec p {
+        font-size: 0.9em;
+    }
+}
+
