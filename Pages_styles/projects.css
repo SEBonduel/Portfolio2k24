@@ -32,21 +32,22 @@ body{
     width: 40%;
     text-decoration: none;
     color:white;
-    margin-right:-9em;
 }
+
 .active{
     color: black;
     background-color:white;
     border-radius: 20px;
     padding:0.6em 1.5em;
     text-decoration: none;
+    transition: all 0.3s ease;
+
 
 }
 
 .navlist a:not(.active){
     text-decoration: none;
     color:white;
-    padding:0.6em 1.5em;
     border-radius: 20px;
     transition: all 0.3s ease;
 }
@@ -55,6 +56,12 @@ body{
     background-color:white;
     color:black;
     transition: all 0.3s ease;
+    padding:0.6em 1.5em;
+
+}
+
+.navlist a{
+    padding:0.6em 1.5em;
 }
 
 .logo{
@@ -63,7 +70,6 @@ body{
     text-decoration: none;
     color:white;
     text-transform: uppercase;
-    margin-left:-4em;
 }
 
 
@@ -256,5 +262,102 @@ input:checked + label .description{
 .close-btn:hover {
     color: red;
     transition:all 0.3s ease;
+}
 
+@media (max-width: 1400px) {
+   .navbar ul{
+        margin-right:4em;
+   }
+}
+
+@media (max-width: 1200px) {
+    .navbar ul{
+         margin-right:8em;
+    }
+
+    input:checked + label{
+        width: 500px;
+    }
+
+    .card{
+        width: 70px;
+    }
+
+    .popup.active {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .navbar ul{
+         display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    input:checked + label{
+        width: 350px;
+    }
+
+    .card{
+        width: 65px;
+    }
+
+    .popup.active {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .wrapper{
+        justify-content: flex-start;
+    }
+
+    input:checked + label{
+        width: 450px;
+    }
+
+    .card{
+        margin-bottom:1em;
+    }
+
+    .logo{
+        margin-right: 0;
+        font-size: 28px;
+    }
+
+    .popup.active {
+        font-size: 11px;
+    }
+    
+}
+
+@media (max-width: 500px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .wrapper{
+        justify-content: flex-start;
+    }
+
+    input:checked + label{
+        width: 300px;
+    }
+
+    .card{
+        margin-bottom:1em;
+    }
+
+    .logo{
+        font-size: 22px;
+    }
+
+    .popup.active {
+        font-size: 10px;
+    }
 }
