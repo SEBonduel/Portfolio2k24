@@ -25,9 +25,8 @@ body,input,textarea{
 
 .navbar{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 13px 3%;
     background-color: #0e0d0d;
     color: white;
     font-size: 1.2em;
@@ -38,11 +37,11 @@ body,input,textarea{
 
 .navlist{
     display: flex;
-    justify-content: space-between;
     list-style: none;
-    width: 40%;
+    width: 100%;
     text-decoration: none;
     color:white;
+    justify-content: flex-end;
 }
 
 .active{
@@ -52,8 +51,6 @@ body,input,textarea{
     padding:0.6em 1.5em;
     text-decoration: none;
     transition: all 0.3s ease;
-
-
 }
 
 .navlist a:not(.active){
@@ -67,12 +64,19 @@ body,input,textarea{
     background-color:white;
     color:black;
     transition: all 0.3s ease;
-    padding:0.6em 1.5em;
+    padding:0.6em 3em;
 
 }
 
 .navlist a{
-    padding:0.6em 1.5em;
+    padding:0.6em 3em;
+    margin-right:0.5em;
+}
+
+.burger-menu{
+    display: none;
+    z-index:4;
+    opacity: 0;
 }
 
 .container{
@@ -86,12 +90,104 @@ body,input,textarea{
     justify-content: center;
 }
 
+.menu-burger-hide {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    transition: right 0.3s ease;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    text-align: center;
+}
+
+nav.menu-burger-hide ul li {
+    margin: 20px 0;
+}
+
+nav.menu-burger-hide ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.menu-burger-hide ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.menu-btn span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+#menu-toggle:checked + .menu-btn span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+    width:35px;
+    height: 4px;
+
+}
+
+#menu-toggle:checked + .menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .menu-btn span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    width:35px;
+    height: 4px;
+}
+
+#menu-toggle:checked ~ nav.menu-burger-hide {
+    right: 0;
+}
+
+.onglet{
+    display: none;
+}
+
+.onglet:checked + label{
+    width: 600px;
+    box-shadow: 0px 10px 30px -5px rgba(224, 192, 11, 0.8);
+}
+
+.onglet:checked + label .description{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
 .logo{
     font-size: 32px;
     font-weight: bold;
     text-decoration: none;
     color:white;
     text-transform: uppercase;
+    width: 100%;
 }
 
 .form{
@@ -368,21 +464,7 @@ textarea.input{
 
 /* Media Queries */
 
-@media (max-width: 1400px) {
-    .navbar ul{
-         margin-right:4em;
-    }
- }
-
  @media (max-width: 1200px) {
-    .navbar ul{
-         margin-right:8em;
-    }
-
-    input:checked + label{
-        width: 500px;
-    }
-
     .card{
         width: 70px;
     }
@@ -393,15 +475,27 @@ textarea.input{
 }
 
 @media (max-width: 1050px) {
-    .navbar ul{
-         display: none;
+    .navlist {
+        display: none;
+    }
+    .menu-btn {
+        display: block;
     }
 }
 
 @media (max-width:850px){
+    #bg-video{
+        position:fixed;
+    }
+
+    body{
+        overflow: auto;
+    }
+
     .form{
         grid-template-columns: 1fr;
     }
+
     .contact-info:before{
         bottom:initial;
         top:-75px;
@@ -433,17 +527,15 @@ textarea.input{
     .social-media{
         padding:1.5rem 0 0 0;
     }
-
-    input:checked + label{
-        width: 350px;
-    }
-
     .card{
         width: 65px;
     }
 
     .popup.active {
         font-size: 12px;
+    }
+    .logo{
+        font-size: 28px;
     }
 }
 
@@ -455,11 +547,6 @@ textarea.input{
     .wrapper{
         justify-content: flex-start;
     }
-
-    input:checked + label{
-        width: 450px;
-    }
-
     .card{
         margin-bottom:1em;
     }
@@ -483,11 +570,6 @@ textarea.input{
     .wrapper{
         justify-content: flex-start;
     }
-
-    input:checked + label{
-        width: 300px;
-    }
-
     .card{
         margin-bottom:1em;
     }

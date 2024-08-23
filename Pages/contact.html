@@ -11,15 +11,31 @@
     <video autoplay muted loop id="bg-video">
         <source src="/Medias/background.mp4" type="video/mp4">
     </video>
-   <div class="navbar">
-        <a href="/index.html" class="logo">SéBASTIEN DEMANGE</a>
+    <div class="navbar">
+        <a href="/index.html" class="logo">Sébastien DEMANGE</a>
         <ul class="navlist">
             <li><a href="/index.html">Accueil</a></li>
             <li><a href="/Pages/projects.html">Projets</a></li>
-            <li><a href="/Pages/skills.html">Compétences</a></li>
             <li><a href="/Pages/contact.html" class="active">Contact</a></li>
         </ul>
-   </div>
+    
+        <!-- Checkbox et burger menu -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    
+        <!-- Menu déroulant caché -->
+        <nav class="menu-burger-hide">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Projets</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container">
         <span class="big-circle"></span>
         <div class="form">

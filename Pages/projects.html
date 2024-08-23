@@ -13,17 +13,33 @@
         <source src="/Medias/background.mp4" type="video/mp4">
     </video>
     <div class="navbar">
-        <a href="/index.html" class="logo">SéBASTIEN DEMANGE</a>
+        <a href="/index.html" class="logo">Sébastien DEMANGE</a>
         <ul class="navlist">
             <li><a href="/index.html">Accueil</a></li>
             <li><a href="/Pages/projects.html" class="active">Projets</a></li>
-            <li><a href="/Pages/skills.html">Compétences</a></li>
             <li><a href="/Pages/contact.html">Contact</a></li>
         </ul>
+    
+        <!-- Checkbox et burger menu -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    
+        <!-- Menu déroulant caché -->
+        <nav class="menu-burger-hide">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Projets</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </div>
     <div class="wrapper">
         <div class="container">
-            <input type="radio" name="slide" id="c1" checked>
+            <input class="onglet" type="radio" name="slide" id="c1" checked>
             <label for="c1" class="card">
                 <div class="row">
                     <div class="icon">1</div>
@@ -44,7 +60,7 @@
                 </div>
             </label>
 
-            <input type="radio" name="slide" id="c2">
+            <input class="onglet" type="radio" name="slide" id="c2">
             <label for="c2" class="card">
                 <div class="row">
                     <div class="icon">2</div>
@@ -77,7 +93,7 @@
                 </div>
             </label>
 
-            <input type="radio" name="slide" id="c3">
+            <input class="onglet" type="radio" name="slide" id="c3">
             <label for="c3" class="card">
                 <div class="row">
                     <div class="icon">3</div>
@@ -101,7 +117,7 @@
                 </div>
             </label>
 
-            <input type="radio" name="slide" id="c4">
+            <input class="onglet" type="radio" name="slide" id="c4">
             <label for="c4" class="card">
                 <div class="row">
                     <div class="icon">4</div>
