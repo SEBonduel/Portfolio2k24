@@ -8,12 +8,31 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">SéBASTIEN DEMANGE</a>
-        <ul>
-            <li><a href="" class="active">Accueil</a></li>
-            <li><a href="/Pages/projects.html">Projets</a></li>
-            <li><a href="/Pages/contact.html">Contact</a></li>
-        </ul>
+        <div class="navbar">
+            <a href="/index.html" class="logo">Sébastien DEMANGE</a>
+            <ul class="navlist">
+                <li><a href="/index.html"class="active">Accueil</a></li>
+                <li><a href="/Pages/projects.html" >Projets</a></li>
+                <li><a href="/Pages/contact.html">Contact</a></li>
+            </ul>
+        
+            <!-- Checkbox et burger menu -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        
+            <!-- Menu déroulant caché -->
+            <nav class="menu-burger-hide">
+                <ul>
+                    <li><a href="/index.html">Accueil</a></li>
+                    <li><a href="/Pages/projects.html">Projets</a></li>
+                    <li><a href="/Pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
 
 
 
@@ -51,10 +70,14 @@
     </div>
 
     <script>
-        window.onload = function() {
-    window.scrollTo(0, 0.01 * window.innerHeight);
-};
-      document.addEventListener("DOMContentLoaded", function() {
+
+        
+        window.onload = function() 
+        {
+            window.scrollTo(0, 0.01 * window.innerHeight);
+        };
+        
+        document.addEventListener("DOMContentLoaded", function() {
         let stars = document.getElementById('stars');
         let moon = document.getElementById('moon');
         let mountains_behind = document.getElementById('mountains_behind');

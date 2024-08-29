@@ -14,62 +14,152 @@ body{
     overflow-x:hidden ;
 }
 
-header{
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    padding: 20px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10000;
-}
 
-header .logo{
-    color: #fff;
+
+  
+.logo{
+    font-size: 32px;
+    font-weight: bold;
     text-decoration: none;
-    font-weight: 700;
-    font-size:2em;
+    color:white;
     text-transform: uppercase;
-    margin-left:1.5em;
+    width: 100%;
 }
 
-header ul{
+.navbar{
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size:19.2px;
-    padding: 11.52px;
-    padding-left:1em;
-}
-
-header ul li{
-    list-style: none;
-    margin-right: 20px;
-    margin-left:1em;
-
-}
-
-header ul li a{
+    padding: 13px 3%;
+    background-color: #0e0d0d;
+    color: white;
+    font-size: 1.2em;
     text-decoration: none;
-    padding: 6px 15px;
-    color: #fff;
+    height:80px;
+    color:white;
+    position: fixed;
+    width: 100%;
+    z-index: 1001;
+}
+
+.navlist{
+    display: flex;
+    list-style: none;
+    width: 100%;
+    text-decoration: none;
+    color:white;
+    justify-content: flex-end;
+}
+
+.active{
+    color: black;
+    background-color:white;
     border-radius: 20px;
-    padding: 0.6em 1.5em;
+    padding:0.6em 1.5em;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-header ul li a:hover{
-    background:#fff;
-    color:#2b1055;
+.navlist a:not(.active){
+    text-decoration: none;
+    color:white;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
-header ul li a.active{
-    background:#fff;
-    color:#2b1055;
-    padding: 0.6em 1.5em;
+.navlist a:not(.active):hover{
+    background-color:white;
+    color:black;
+    transition: all 0.3s ease;
+    padding:0.6em 3em;
 }
 
+.navlist a{
+    padding:0.6em 3em;
+    margin-right:0.5em;
+}
+
+.burger-menu{
+    display: none;
+    z-index:4;
+    opacity: 0;
+}
+
+.menu-burger-hide {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    transition: right 0.3s ease;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    text-align: center;
+}
+
+nav.menu-burger-hide ul li {
+    margin: 20px 0;
+}
+
+nav.menu-burger-hide ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.menu-burger-hide ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.menu-btn span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+#menu-toggle:checked + .menu-btn span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+    width:35px;
+    height: 4px;
+
+}
+
+#menu-toggle:checked + .menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .menu-btn span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    width:35px;
+    height: 4px;
+}
+
+#menu-toggle:checked ~ nav.menu-burger-hide {
+    right: 0;
+}
 
 section{
     position: relative;
@@ -119,21 +209,24 @@ section img#mountains_front{
     z-index:9;
 }
 
-#btn{
+#btn {
     text-decoration: none;
-    display: inline-block;
-    margin-top:9em;
-    height:60px;
-    align-content: center;
+    display: flex;
+    margin-top: 9em;
+    height: 60px;
     padding: 8px 30px;
     border-radius: 40px;
-    background:#fff;
-    color:#2b1055;
+    background: #fff;
+    color: #2b1055;
     font-size: 1.5em;
-    margin-left:42%;
     box-sizing: border-box;
     z-index: 11;
     transform: translateY(400px);
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    flex-direction: row;
+    margin: auto;
 }
 
 .sec{
@@ -153,45 +246,17 @@ section img#mountains_front{
     font-size: 1.2em;
 }
 
-@media (max-width: 1250px) {
-  
-    a.logo{
-        font-size: 26px;
-        margin-left: 1em;
-    
-    }
-}
 
-@media (max-width: 1125px) {
-    header ul{
-        font-size: 16px;
-    
+@media (max-width: 1050px) {
+    .navlist {
+        display: none;
     }
-
-    a.logo{
-        font-size: 24px;
-        margin-left: 1em;
-    
+    .menu-btn {
+        display: block;
     }
 }
 
 @media (max-width: 992px) {
-    header .logo {
-        font-size: 1.5em;
-        margin-left: 1em;
-    }
-
-    header ul {
-        font-size: 16px;
-        padding: 8px 20px;
-        margin-right: -2em;
-        display: none;
-    }
-
-    header ul li {
-        margin-right: 15px;
-    }
-
     section {
         padding: 50px;
     }
@@ -199,16 +264,13 @@ section img#mountains_front{
     #text {
         font-size: 5vw;
         right: -250px;
-        top: 100px;
+        top: 250px;
     }
 
     #btn {
         margin-top: 6em;
-        height: 50px;
         padding: 6px 20px;
-        font-size: 1.2em;
-        margin-left: 38%;
-        transform: translateY(200px);
+        margin:auto;
     }
 
     .sec {
@@ -230,34 +292,22 @@ section img#mountains_front{
         font-size: 1.2em;
         margin-left: 0.5em;
     }
-
-    header ul {
-        font-size: 14px;
-        padding: 6px 15px;
-        margin-right: -1em;
-    }
-
-    header ul li {
-        margin-right: 10px;
-    }
-
     section {
         padding: 30px;
     }
 
     #text {
-        font-size: 4vw;
-        right: -150px;
-        top: 80px;
+        font-size: 2em;
+        right: -175px;
+        top: 300px;
     }
 
     #btn {
-        margin-top: 4em;
         height: 40px;
         padding: 4px 15px;
         font-size: 1em;
-        margin-left: 35%;
-        transform: translateY(150px);
+        margin: auto;
+        transform: translateY(300px);
     }
 
     .sec {
