@@ -292,6 +292,11 @@ nav.menu-burger-hide ul li a {
     background-position: 50%;    
 }
 
+.card[for="c5"]{
+    background-image: url('/Medias/Ham\'apiens.png');
+    background-position: 50%;    
+}
+
 .popup {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
@@ -338,7 +343,7 @@ nav.menu-burger-hide ul li a {
 
 @media (max-width: 1200px) {
     .card{
-        width: 70px;
+        width: 80px;
     }
 
     .popup.active {
@@ -353,13 +358,15 @@ nav.menu-burger-hide ul li a {
     .menu-btn {
         display: block;
     }
+    .container{
+        display: flex;
+        flex-direction: column;
+        height:100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 850px) {
-    .card{
-        width: 65px;
-    }
-
     .popup.active {
         font-size: 12px;
     }
@@ -369,28 +376,32 @@ nav.menu-burger-hide ul li a {
 }
 
 @media (max-width: 650px) {
-    .container{
-        height:300px;
-    }
-    .card{
-        width: 60px;
-    }
-
     .popup.active {
         font-size: 10px;
+    }
+    
+    .onglet:checked + label.card{
+        width: 450px;
+    }
+}
+
+@media (max-width: 500px) {
+    .onglet:checked + label.card{
+        width: 300px;
     }
 }
 
 @media (max-width: 450px) {
-    .card{
-        width: 55px;
-    }
-
     .popup.active {
         font-size: 8px;
     }
-
     .logo{
         font-size: 22px;
+    }   
+}
+
+@media (max-width: 350px) {
+    .onglet:checked + label.card{
+        width: 200px;
     }
 }
