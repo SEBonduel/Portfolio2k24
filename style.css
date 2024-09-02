@@ -254,6 +254,9 @@ section img#mountains_front{
     .menu-btn {
         display: block;
     }
+    .logo{
+        font-size:32px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -288,9 +291,8 @@ section img#mountains_front{
 
 
 @media (max-width: 576px) {
-    header .logo {
-        font-size: 1.2em;
-        margin-left: 0.5em;
+    .logo {
+        font-size: 24px;
     }
     section {
         padding: 30px;
@@ -298,7 +300,7 @@ section img#mountains_front{
 
     #text {
         font-size: 2em;
-        right: -175px;
+        right: -200px;
         top: 300px;
     }
 
@@ -320,6 +322,18 @@ section img#mountains_front{
 
     .sec p {
         font-size: 0.9em;
+    }
+}
+
+@media (max-width: 450px) {
+    .logo {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 350px) {
+    .logo {
+        font-size: 18px;
     }
 }
 
