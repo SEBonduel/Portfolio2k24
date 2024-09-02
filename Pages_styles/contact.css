@@ -565,6 +565,12 @@ textarea.input{
     
 }
 
+@media (max-width: 576px) {
+    .logo {
+        font-size: 24px;
+    }
+}
+
 @media (max-width: 500px) {
     .container{
         flex-direction: column;

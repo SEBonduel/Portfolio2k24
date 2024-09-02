@@ -22,6 +22,8 @@ body{
     text-decoration: none;
     height:80px;
     color:white;
+    position: fixed;
+    width: 100%;
 }
 
 .navlist{
@@ -91,6 +93,7 @@ body{
     flex-direction: column;
     padding-top: 50px;
     text-align: center;
+    position: fixed;
 }
 
 nav.menu-burger-hide ul li {
@@ -401,6 +404,12 @@ nav.menu-burger-hide ul li a {
     
     .onglet:checked + label.card{
         width: 450px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        font-size: 24px;
     }
 }
 
