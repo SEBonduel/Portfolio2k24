@@ -354,6 +354,14 @@ nav.menu-burger-hide ul li a {
 }
 
 @media (max-width: 1050px) {
+    body{
+        overflow:scroll;
+    }
+    .navbar{
+        position:fixed;
+        width:100%;
+    }
+
     .navlist {
         display: none;
     }
@@ -365,7 +373,6 @@ nav.menu-burger-hide ul li a {
         flex-direction: column;
         height:100vh;
         justify-content: center;
-        margin-bottom:2em;
     }
 }
 
