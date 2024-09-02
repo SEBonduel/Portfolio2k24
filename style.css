@@ -256,6 +256,7 @@ section img#mountains_front{
     }
     .logo{
         font-size:32px;
+        width: fit-content;
     }
 }
 
@@ -286,6 +287,12 @@ section img#mountains_front{
 
     .sec p {
         font-size: 1em;
+    }
+}
+
+@media (max-width: 850px) {
+    .logo{
+        font-size:28px;
     }
 }
 

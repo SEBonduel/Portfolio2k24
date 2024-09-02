@@ -74,7 +74,7 @@ body{
     text-decoration: none;
     color:white;
     text-transform: uppercase;
-    width: 100%;
+    width: 60%;
 }
 
 .menu-burger-hide {
@@ -137,7 +137,6 @@ nav.menu-burger-hide ul li a {
     transform: translateY(10px) rotate(45deg);
     width:35px;
     height: 4px;
-
 }
 
 #menu-toggle:checked + .menu-btn span:nth-child(2) {
@@ -373,6 +372,12 @@ nav.menu-burger-hide ul li a {
         flex-direction: column;
         height:100vh;
         justify-content: center;
+    }
+    #bg-video{
+        position: fixed;
+    }
+    .logo{
+        width: fit-content;
     }
 }
 

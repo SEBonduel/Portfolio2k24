@@ -187,7 +187,7 @@ nav.menu-burger-hide ul li a {
     text-decoration: none;
     color:white;
     text-transform: uppercase;
-    width: 100%;
+    width: 60%;
 }
 
 .form{
@@ -480,6 +480,9 @@ textarea.input{
     }
     .menu-btn {
         display: block;
+    }
+    .logo{
+        width: fit-content;
     }
 }
 
