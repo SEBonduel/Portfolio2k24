@@ -12,6 +12,90 @@ body,input,textarea{
     overflow: hidden;
 }
 
+.center {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background:#000;
+    z-index: 1003;
+    color:white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: opacity 1s ease-out;
+}
+
+#content {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px); /* Décalage initial pour l'effet d'apparition */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transition sur opacité et position */
+}
+
+/* Classe active pour afficher le contenu */
+#content.active {
+    opacity: 1;
+    transform: translateY(0); /* Remettre à la position normale */
+}
+
+.ring {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ring 1.25s linear infinite;
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e65c00;
+    }
+    50% {
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px #18b201;
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px #0456c8;
+    }
+   
+}
+
+.ring:before {
+    position: absolute;
+    content:'';
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 5px rgba(255,255,255,0.3);
+    border-radius: 50%;
+}
+
+.loading {
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 200px;
+    animation: text 3s ease-in-out infinite;
+}
+
+@keyframes text {
+    0% {
+        color: #737373;
+    }
+    50% {
+        color: #212121;
+    }
+    100% {
+        color: #737373;
+    }
+}
+
 #bg-video{
     position: absolute;
     top: 0;
