@@ -284,7 +284,7 @@ section img#mountains_front{
 }
 
 #text{
-    right:-30vw;
+    right:29.5vw;
     top:150px;
     position: absolute;
     color: #fff;
@@ -393,8 +393,6 @@ section img#mountains_front{
     }
 
     #text {
-        font-size: 5vw;
-        right: -250px;
         top: 250px;
     }
 
@@ -438,8 +436,6 @@ section img#mountains_front{
     }
 
     #text {
-        font-size: 2em;
-        right: -200px;
         top: 300px;
     }
     .sec {
