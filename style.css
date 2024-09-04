@@ -10,7 +10,7 @@
 
 body{
     min-height: 100vh;
-    background: linear-gradient(#2b1055,#7597de);
+    background: #1c0522;
     overflow-x:hidden ;
 }
 
@@ -370,6 +370,255 @@ section img#mountains_front{
     font-size: 1.2em;
 }
 
+
+.wrapper,.wrapper2{
+    width: 40%;
+    min-width: 500px;
+    position: relative;
+    top: 50%;
+    margin-top:5em;
+}
+
+.all-skills {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top:2em;
+    margin-bottom: 8em;
+    gap:150px;
+}
+
+.container{
+    width: 100%;
+    padding: 50px 30px;
+    background-color: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.container2{
+    width: 100%;
+    padding: 50px 30px;
+    background-color: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    color:white;
+}
+
+.shape-1{
+    height: 220px;
+    width: 220px;
+    background: linear-gradient(#2c0f4d, #040008);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    z-index: -1;
+}
+
+.shape-2{
+    height: 180px;
+    width: 180px;
+    background: linear-gradient(#0f072b, #123979);
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    right: -50px;
+    z-index: -1;
+}
+
+.shape-3{
+    height: 180px;
+    width: 180px;
+    background: linear-gradient(#2c0f4d, #040008);
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    right: -50px;
+    z-index: -1;
+}
+
+.shape-4{
+    height: 220px;
+    width: 220px;
+    background: linear-gradient(#0f072b, #123979);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    z-index: -1;
+}
+
+
+
+.container *,.container2 *{
+    font-family: "Poppins",sans-serif;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+h2{
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+.skills:not(:last-child){
+    margin-bottom: 30px;
+}
+.details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.bar{
+    position: relative;
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 7px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+.bar div{
+    position: relative;
+    width: 0;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #badefc;
+    border: 1px solid #1c97fc;
+    box-shadow: 0 0 5px rgba(28,151,252,0.6);
+}
+#html-bar{
+    animation: html-fill 2s forwards;
+}
+@keyframes html-fill{
+    100%{
+        width: 90%;
+    }
+}
+#css-bar{
+    animation: css-fill 2s forwards;
+}
+@keyframes css-fill{
+    100%{
+        width: 85%;
+    }
+}
+#js-bar{
+    animation: js-fill 2s forwards;
+}
+@keyframes js-fill {
+    100%{
+        width: 80%;
+    }
+}
+#ReactJS-bar{
+    animation: ReactJS-fill 2s forwards;
+}
+@keyframes ReactJS-fill{
+    100%{
+        width: 80%;
+    }
+}
+#VUE-bar{
+    animation: VUE-fill 2s forwards;
+}
+@keyframes VUE-fill{
+    100%{
+        width: 80%;
+    }
+}
+#PHP-bar{
+    animation: PHP-fill 2s forwards;
+}
+@keyframes PHP-fill{
+    100%{
+        width: 75%;
+    }
+}
+#MYSQL-bar{
+    animation: MYSQL-fill 2s forwards;
+}
+@keyframes MYSQL-fill{
+    100%{
+        width: 75%;
+    }
+}
+
+#flutter-bar{
+    animation: flutter-fill 2s forwards;
+}
+@keyframes flutter-fill{
+    100%{
+        width: 70%;
+    }
+}
+
+#teamwork-bar{
+    animation: teamwork-fill 2s forwards;
+}
+@keyframes teamwork-fill{
+    100%{
+        width: 95%;
+    }
+}
+
+#communication-bar{
+    animation: communication-fill 2s forwards;
+}
+@keyframes communication-fill{
+    100%{
+        width: 90%;
+    }
+}
+
+#adapt-bar{
+    animation: adapt-fill 2s forwards;
+}
+@keyframes adapt-fill{
+    100%{
+        width: 90%;
+    }
+}
+
+#resoPb-bar{
+    animation: resoPb-fill 2s forwards;
+}
+@keyframes resoPb-fill{
+    100%{
+        width: 85%;
+    }
+}
+
+#time-bar{
+    animation: time-fill 2s forwards;
+}
+@keyframes time-fill{
+    100%{
+        width: 85%;
+    }
+}
+
+/*====================RESPONSIVE==========================*/
+
+@media (max-width: 1250px) {
+    .all-skills {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 7em;
+        gap: 150px;
+        flex-direction: column;
+    }
+    .wrapper{
+        margin-top:0;
+    }
+}
 
 @media (max-width: 1050px) {
     .navlist {
