@@ -769,6 +769,36 @@ h2{
     }
 }
 
+@media (max-width: 400px) {
+    .shape-1{
+        height: 100px;
+        width: 100px;
+        bottom: -40px;
+        left: -35px;
+    }
+    
+    .shape-2{
+        height: 80px;
+        width: 80px;
+        top: -35px;
+        right: -30px;
+    }
+    
+    .shape-3{
+        height: 80px;
+        width: 80px;
+        top: -35px;
+        right: -30px;
+    }
+    
+    .shape-4{
+        height: 100px;
+        width: 100px;
+        bottom: -40px;
+        left: -35px;
+    }
+}
+
 @media (max-width: 350px) {
     .logo {
         font-size: 18px;
@@ -779,6 +809,10 @@ h2{
     #btn {
         padding: 8px 38px;
         height: 8em;
+    }
+
+    .shape-1, .shape-2, .shape-3, .shape-4 {
+        display: none;
     }
     
     @keyframes move-down {
