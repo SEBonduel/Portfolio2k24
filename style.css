@@ -671,6 +671,46 @@ h2{
     }
 }
 
+@media (max-width: 650px) {
+    .wrapper,.wrapper2{
+        width: 50%;
+        min-width: 300px;
+    }
+    .container,.container2{
+        padding: 50px 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .shape-1{
+        height: 150px;
+        width: 150px;
+        bottom: -60px;
+        left: -45px;
+    }
+    
+    .shape-2{
+        height: 120px;
+        width: 120px;
+        top: -50px;
+        right: -45px;
+    }
+    
+    .shape-3{
+        height: 120px;
+        width: 120px;
+        top: -50px;
+        right: -45px;
+    }
+    
+    .shape-4{
+        height: 150px;
+        width: 150px;
+        bottom: -60px;
+        left: -45px;
+    }
+}
 
 @media (max-width: 576px) {
     .logo {
