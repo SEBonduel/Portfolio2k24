@@ -385,6 +385,12 @@ nav.menu-burger-hide ul li a {
     background-position: 50%;    
 }
 
+.card[for="c6"]{
+    background-image: url('/Medias/PasswordGenerator.png');
+    background-position: 50%;    
+}
+
+
 .popup {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
