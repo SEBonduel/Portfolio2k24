@@ -532,6 +532,23 @@ h2{
         width: 75%;
     }
 }
+
+#tailwindcss-bar{
+    animation: tailwindcss-fill 2s forwards;
+}
+@keyframes tailwindcss-fill{
+    100%{
+        width: 80%;
+    }
+}
+#bootstrap-bar{
+    animation: bootstrap-fill 2s forwards;
+}
+@keyframes bootstrap-fill{
+    100%{
+        width: 80%;
+    }
+}
 #PHP-bar{
     animation: PHP-fill 2s forwards;
 }
