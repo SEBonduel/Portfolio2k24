@@ -488,6 +488,12 @@ textarea.input{
     margin-top:0.5rem;
 }
 
+.social_icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 20%;
+}
+
 .social-icons a{
     width:35px;
     height:35px;
