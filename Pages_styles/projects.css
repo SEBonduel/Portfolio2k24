@@ -389,6 +389,10 @@ nav.menu-burger-hide ul li a {
     background-image: url('/Medias/PasswordGenerator.png');
     background-position: 50%;    
 }
+.card[for="c7"]{
+    background-image: url('/Medias/SeeWeather.png');
+    background-position: 50%;    
+}
 
 
 .popup {
